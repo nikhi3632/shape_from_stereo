@@ -1,5 +1,7 @@
 # Shape From Stereo
 
+This project simulates depth perception using image analysis by generating a depth map that calculates the differences in colouration between two images that represent what is seen by the left and right eyes. It also implements a quadtree compression algorithm as an effective way of storing depth maps which are square compared to bitmaps because depth maps tend to have many homogeneous sections.
+
 ### Background
 
 Cameras traditionally capture a two dimensional projection of a scene. However depth information is important for many real-world application including robotic navigation, face recognition, gesture or pose recognition, 3D scanning, and self-driving cars. The human visual system can preceive depth by comparing the images captured by our two eyes. This is called stereo vision. In this project we will experiment with a simple computer vision/image processing technique, called "shape from stereo" that, much like humans do, computes the depth information from stereo images (images taken from two locations that are displaced by a certain amount).
