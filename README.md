@@ -1,6 +1,6 @@
 # Shape From Stereo
 
-This project simulates depth perception using image analysis by generating a depth map that calculates the differences in colouration between two images that represent what is seen by the left and right eyes. It also implements a quadtree compression algorithm as an effective way of storing depth maps which are square compared to bitmaps because depth maps tend to have many homogeneous sections.
+This project simulates depth perception using image analysis by generating a depth map that calculates the differences in colouration between two images that represent what is seen by the left and right eyes. It also implements a quadtree compression algorithm as an effective way of storing only those depth maps (which are assumed to be a square) compared to bitmaps because depth maps tend to have many homogeneous sections.
 
 ### Background
 
