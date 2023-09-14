@@ -1,0 +1,47 @@
+gcc -Wall -Werror -g -std=c99 -o depth_map calc_depth.c depth_map.c utils.c -lm
+gcc -Wall -Werror -g -std=c99 -o quadtree quadtree.c make_qtree.c utils.c -lm
+gcc -Wall -Werror -g -std=c99 -o unit-tests test/cunit/unit-tests.c -lm -L/opt/homebrew/Cellar/cunit/2.1-3/lib -I/opt/homebrew/Cellar/cunit/2.1-3/include -lcunit
+./unit-tests | tee unit_tests.log
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+Suite: Testing calc_depth helper functions
+  Test: square euclidean distance test ...passed
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      1      1      1      0        0
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+python3 check.py | tee check_results.log
+Testing ./depth_map ...
+Running: ./depth_map -l test/images/quilt1-left.bmp -r test/images/quilt1-right.bmp -h 0 -w 0 -t 1 -o test/output/quilt1-output.bmp -v
+Correct output. test/output/quilt1-output.txt and test/expected/quilt1-expected.txt
+Running: ./depth_map -l test/images/quilt2-left.bmp -r test/images/quilt2-right.bmp -h 0 -w 0 -t 1 -o test/output/quilt2-output.bmp -v
+Correct output. test/output/quilt2-output.txt and test/expected/quilt2-expected.txt
+Running: ./depth_map -l test/images/quilt3-left.bmp -r test/images/quilt3-right.bmp -h 0 -w 0 -t 1 -o test/output/quilt3-output.bmp -v
+Correct output. test/output/quilt3-output.txt and test/expected/quilt3-expected.txt
+Running: ./depth_map -l test/images/quilt4-left.bmp -r test/images/quilt4-right.bmp -h 0 -w 0 -t 0 -o test/output/quilt4-output.bmp -v
+Correct output. test/output/quilt4-output.txt and test/expected/quilt4-expected.txt
+Running: ./depth_map -l test/images/cal1-left.bmp -r test/images/cal1-right.bmp -h 0 -w 0 -t 3 -o test/output/cal1-output.bmp -v
+Correct output. test/output/cal1-output.txt and test/expected/cal1-expected.txt
+Running: ./depth_map -l test/images/cal2-left.bmp -r test/images/cal2-right.bmp -h 0 -w 0 -t 4 -o test/output/cal2-output.bmp -v
+Correct output. test/output/cal2-output.txt and test/expected/cal2-expected.txt
+Running: ./depth_map -l test/images/real1-left.bmp -r test/images/real1-right.bmp -h 3 -w 3 -t 14 -o test/output/real1-output.bmp -v
+Correct output. test/output/real1-output.txt and test/expected/real1-expected.txt
+Running: ./depth_map -l test/images/real2-left.bmp -r test/images/real2-right.bmp -h 3 -w 3 -t 14 -o test/output/real2-output.bmp -v
+Correct output. test/output/real2-output.txt and test/expected/real2-expected.txt
+Testing ./quadtree ...
+Running: ./quadtree test/images/tiny-input.bmp
+Correct output. test/output/tiny-output.txt and test/expected/tiny-expected.txt
+Running: ./quadtree test/images/small-input.bmp
+Correct output. test/output/small-output.txt and test/expected/small-expected.txt
+Running: ./quadtree test/images/empty-input.bmp
+Correct output. test/output/empty-output.txt and test/expected/empty-expected.txt
+All OK
+rm -rf depth_map quadtree unit-tests *.dSYM unit_tests.log check_results.log dmap.log qtree.log 
+DONE SUCCESS !!!
