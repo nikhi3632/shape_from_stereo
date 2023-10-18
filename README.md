@@ -96,7 +96,7 @@ The following example illustrates these points:
 
 ### Debugging and Testing
 
-The code is compiled with the -g flag, so CGDB can be used for debugging the programs. Glance through the avaiable options in Makefile. There are some well defined test cases.
+The code is compiled with the -g flag, so CGDB can be used for debugging the programs. Glance through the available options in Makefile. There are some well defined test cases.
 
 ```bash
 make clean
